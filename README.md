@@ -2,26 +2,29 @@
 
 ### How to run on Windows:
 
-Do steps 1-9: https://docs.microsoft.com/en-us/windows/dev-environment/javascript/nodejs-on-windows
+	Do steps 1-9: https://docs.microsoft.com/en-us/windows/dev-environment/javascript/nodejs-on-windows
+
+```
 
 Open PowerShell, change location to path where Synoptic files are:
 
-```
-Set-Location -Path [file path name]
-```
+	Set-Location -Path [file path name]
 
+	or
+
+	cd '[file path name]'
+
+```
 Install dependencies:
-npm install body-parser
-npm install express
+	npm install body-parser
+	npm install express
+	npm i
 
-```
-  npm i
 ```
 
 Then run the app:
+ 	npm run start
 
-```
-  npm run start
 ```
 
 Open `http://localhost:3000/` in a web browser.
