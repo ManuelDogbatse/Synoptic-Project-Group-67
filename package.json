@@ -1,0 +1,25 @@
+{
+  "dependencies": {
+    "body-parser": "^1.20.0",
+    "ejs": "^3.1.8",
+    "express": "^4.18.1",
+    "run": "^1.4.0"
+  },
+  "scripts": {
+    "start": "node server.js"
+  },
+  "name": "synoptic-project-group-67",
+  "description": "Do steps 1-9: https://docs.microsoft.com/en-us/windows/dev-environment/javascript/nodejs-on-windows",
+  "version": "1.0.0",
+  "main": "server.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ManuelDogbatse/Synoptic-Project-Group-67.git"
+  },
+  "author": "Rex Borda",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ManuelDogbatse/Synoptic-Project-Group-67/issues"
+  },
+  "homepage": "https://github.com/ManuelDogbatse/Synoptic-Project-Group-67#readme"
+}
