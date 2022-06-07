@@ -7,6 +7,7 @@ app.use(bodyParser.json());                         //Using body parser to handl
 app.use(bodyParser.urlencoded({extended:false}))    //Avoids data from becoming URL encoded
 app.use(express.static('public')); 
 
+// Get request for index
 app.get('/', (req, res) => {
     res.render('index.ejs',)
 })
