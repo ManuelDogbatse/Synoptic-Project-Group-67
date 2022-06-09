@@ -23,6 +23,11 @@ app.get('/form', (req, res) => {
     res.render('form.ejs');
 });
 
+// Get request for graph
+app.get('/graph', (req, res) => {
+    res.render('graph.ejs');
+});
+
 app.post('/form', (req, res) => {
     try{
         form.push({
