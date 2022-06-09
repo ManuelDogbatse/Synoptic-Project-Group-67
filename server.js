@@ -6,7 +6,7 @@ const fs = require('fs')
 
 // Middleware
 app.use(bodyParser.json());                          //Using body parser to handle form data
-app.use(bodyParser.urlencoded({extended:false}));    //Avoids data from becoming URL encoded
+app.use(bodyParser.urlencoded({ extended: false }));    //Avoids data from becoming URL encoded
 app.use(express.static('public'));
 
 // JSON File
@@ -28,10 +28,15 @@ app.get('/graph', (req, res) => {
     res.render('graph.ejs');
 });
 
+// Get request for about
+app.get('/about', (req, res) => {
+    res.render('about.ejs');
+});
+
 app.post('/form', (req, res) => {
-    try{
+    try {
         form.push({
-            question1 : req.body.question1
+            question1: req.body.question1
         })
 
         // write data to json file
@@ -40,10 +45,10 @@ app.post('/form', (req, res) => {
 
         res.redirect('/');
 
-    }catch{
+    } catch {
         res.redirect('/');
     }
 });
 
 // Listen on port 3000
-app.listen(3000);
+app.listen(4000);
