@@ -33,10 +33,10 @@ app.post('/form', (req, res) => {
         let data = JSON.stringify(form, undefined, 4)
         fs.writeFileSync('public/data/form.json', data)
 
-        res.redirect('form.ejs');
+        res.redirect('/');
 
     }catch{
-        res.redirect('form.ejs');
+        res.redirect('/');
     }
 });
 
