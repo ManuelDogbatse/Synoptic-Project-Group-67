@@ -14,7 +14,7 @@ let rawdata = fs.readFileSync('public/data/form.json');
 let form = JSON.parse(rawdata);
 
 // Get request for index
-app.get('/', (req, res) => {
+app.get('/index', (req, res) => {
     res.render('index.ejs');
 });
 
