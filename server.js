@@ -2,7 +2,10 @@
 const express = require('express');
 const app = express();
 var bodyParser = require('body-parser');
+const fs = require('fs')
 
+
+// Middleware
 app.use(bodyParser.json());                          //Using body parser to handle form data
 app.use(bodyParser.urlencoded({extended:false}));    //Avoids data from becoming URL encoded
 app.use(express.static('public'));
