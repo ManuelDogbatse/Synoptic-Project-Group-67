@@ -23,6 +23,11 @@ app.get('/form', (req, res) => {
     res.render('form.ejs');
 });
 
+// Get request for about
+app.get('/about', (req, res) => {
+    res.render('about.ejs');
+});
+
 app.post('/form', (req, res) => {
     try{
         form.push({
@@ -41,4 +46,4 @@ app.post('/form', (req, res) => {
 });
 
 // Listen on port 3000
-app.listen(3000);
+app.listen(4000);
