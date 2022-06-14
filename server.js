@@ -10,8 +10,9 @@ app.use(bodyParser.urlencoded({ extended: false }));    //Avoids data from becom
 app.use(express.static('public'));
 
 // JSON File
-let rawdata = fs.readFileSync('public/data/form.json');
-let form = JSON.parse(rawdata);
+const formFilePath = "public/data/form.json";
+let formFileDataJSON = fs.readFileSync(formFilePath);
+let formFileDataJS = JSON.parse(formFileDataJSON);
 
 // Get request for index
 app.get('/index', (req, res) => {
@@ -35,19 +36,40 @@ app.get('/about', (req, res) => {
 
 app.post('/form', (req, res) => {
     try {
-        form.push({
-            question1: req.body.question1
+
+        formFileDataJS.push({
+            townName: req.body.townName,
+            season: req.body.season,
+            temperature: req.body.temperature,
+            temperatureUnit: req.body.temperatureUnit,
+            rainfall: req.body.rainfall,
+            ph: req.body.ph,
+            produce: req.body.produce
         })
 
-        // write data to json file
-        let data = JSON.stringify(form, undefined, 4)
-        fs.writeFileSync('public/data/form.json', data)
+        // Write data to json file
+        let data = JSON.stringify(formFileDataJS, undefined, 4)
+        fs.writeFileSync(formFilePath, data)
 
-        res.redirect('/');
+        res.redirect('/form');
 
-    } catch {
-        res.redirect('/');
     }
+    catch {
+        res.redirect('/form');
+    }
+
+    for (let i = 0; i < formFileDataJS.length; i++)
+    {
+        console.log("Object "+i+":\n");
+        console.log("Town Name: "+formFileDataJS[i].townName+"\n"+
+                    "Season: "+formFileDataJS[i].season+"\n"+
+                    "Temperature: "+formFileDataJS[i].temperature+"\n"+
+                    "Temperature Unit : "+formFileDataJS[i].temperatureUnit+"\n"+
+                    "Rainfall: "+formFileDataJS[i].rainfall+"\n"+
+                    "pH: "+formFileDataJS[i].ph+"\n"+
+                    "Produce: "+formFileDataJS[i].produce+"\n");
+    }
+    
 });
 
 // Listen on port 4000
