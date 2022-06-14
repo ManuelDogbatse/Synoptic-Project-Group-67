@@ -57,8 +57,6 @@
     width: 40%;
     height: 40%;
     outline: auto;
-
-
 }
 
 /* When the screen is less than 600px wide, stack the links and the search field vertically instead of horizontally */
@@ -78,3 +76,16 @@
         border: 1px solid #ccc;
     }
 }
+
+.bokeh1 {
+    width: 650px;
+    margin: 0 auto;
+}
+
+/* .bokeh2 {
+    background-size: 100%;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    margin: 0 auto;
+} */
