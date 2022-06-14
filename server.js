@@ -4,10 +4,11 @@ const app = express();
 var bodyParser = require('body-parser');
 const fs = require('fs')
 
-// Middleware
+// Middleware and Static files
 app.use(bodyParser.json());                          //Using body parser to handle form data
 app.use(bodyParser.urlencoded({ extended: false }));    //Avoids data from becoming URL encoded
 app.use(express.static('public'));
+app.use('/js', express.static(__dirname + 'public/js'))
 
 // JSON File
 const formFilePath = "public/data/form.json";
