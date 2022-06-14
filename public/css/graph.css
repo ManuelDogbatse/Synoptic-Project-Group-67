@@ -77,17 +77,22 @@
     }
 }
 
-.bokeh1 {
+#bokeh-container {
     border-top: 300px;
-    width: 650px;
-    margin: 0 auto;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.bokeh2 {
+/* .bokeh1{
     border-top: 300px;
-    width: 650px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     margin: 0 auto;
-}
+} */
 
 body{
     line-height: 1.6em;
