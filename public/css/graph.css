@@ -78,14 +78,11 @@
 }
 
 .bokeh1 {
+    border-top: 300px;
     width: 650px;
     margin: 0 auto;
 }
 
-/* .bokeh2 {
-    background-size: 100%;
-    width: 200px;
-    height: 200px;
-    border-radius: 50%;
-    margin: 0 auto;
-} */
+body{
+    line-height: 1.6em;
+}
