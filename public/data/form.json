@@ -1,3 +1,20 @@
 [
-    
+    {
+        "townName": "Orpington",
+        "season": "Wet",
+        "temperature": "234",
+        "temperatureUnit": "Celsius",
+        "rainfall": "234",
+        "ph": "3",
+        "produce": "crop2"
+    },
+    {
+        "townName": "Orpington",
+        "season": "Wet",
+        "temperature": "234",
+        "temperatureUnit": "Celsius",
+        "rainfall": "234",
+        "ph": "9",
+        "produce": "crop2"
+    }
 ]

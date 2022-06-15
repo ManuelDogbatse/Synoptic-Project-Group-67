@@ -42,8 +42,11 @@ app.post('/form', (req, res) => {
         let data = JSON.stringify(formFileDataJS, undefined, 4)
         fs.writeFileSync(formFilePath, data)
 
-        res.redirect('/form');
-
+        if(req.body.ph <= 7){
+            res.redirect('/graph1')
+        }else if(req.body.ph > 7 && req.body.ph < 14){
+            res.redirect('/graph2')
+        }
     }
     catch {
         res.redirect('/form');
@@ -64,8 +67,12 @@ app.post('/form', (req, res) => {
 });
 
 // Get request for graph
-app.get('/graph', (req, res) => {
-    res.render('graph.ejs');
+app.get('/graph1', (req, res) => {
+    res.render('graph1.ejs');
+});
+
+app.get('/graph2', (req, res) => {
+    res.render('graph2.ejs');
 });
 
 // Get request for about
