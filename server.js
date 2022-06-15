@@ -52,18 +52,17 @@ app.post('/form', (req, res) => {
         res.redirect('/form');
     }
 
-    for (let i = 0; i < formFileDataJS.length; i++)
-    {
-        console.log("Object "+i+":\n");
-        console.log("Town Name: "+formFileDataJS[i].townName+"\n"+
-                    "Season: "+formFileDataJS[i].season+"\n"+
-                    "Temperature: "+formFileDataJS[i].temperature+"\n"+
-                    "Temperature Unit : "+formFileDataJS[i].temperatureUnit+"\n"+
-                    "Rainfall: "+formFileDataJS[i].rainfall+"\n"+
-                    "pH: "+formFileDataJS[i].ph+"\n"+
-                    "Produce: "+formFileDataJS[i].produce+"\n");
-    }
-    
+//     for (let i = 0; i < formFileDataJS.length; i++)
+//     {
+//         console.log("Object "+i+":\n");
+//         console.log("Town Name: "+formFileDataJS[i].townName+"\n"+
+//                     "Season: "+formFileDataJS[i].season+"\n"+
+//                     "Temperature: "+formFileDataJS[i].temperature+"\n"+
+//                     "Temperature Unit : "+formFileDataJS[i].temperatureUnit+"\n"+
+//                     "Rainfall: "+formFileDataJS[i].rainfall+"\n"+
+//                     "pH: "+formFileDataJS[i].ph+"\n"+
+//                     "Produce: "+formFileDataJS[i].produce+"\n");
+//     }
 });
 
 // Get request for graph
