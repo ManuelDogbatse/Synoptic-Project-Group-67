@@ -25,20 +25,6 @@ app.get('/form', (req, res) => {
     res.render('form.ejs');
 });
 
-// Get request for graph
-app.get('/graph', (req, res) => {
-    res.render('graph.ejs');
-});
-
-// Get request for about
-app.get('/about', (req, res) => {
-    res.render('about.ejs');
-});
-
-app.get('/map', (req, res) => {
-    res.render('map.ejs');
-});
-
 app.post('/form', (req, res) => {
     try {
 
@@ -75,6 +61,21 @@ app.post('/form', (req, res) => {
                     "Produce: "+formFileDataJS[i].produce+"\n");
     }
     
+});
+
+// Get request for graph
+app.get('/graph', (req, res) => {
+    res.render('graph.ejs');
+});
+
+// Get request for about
+app.get('/about', (req, res) => {
+    res.render('about.ejs');
+});
+
+// Get request for about
+app.get('/map', (req, res) => {
+    res.render('map.ejs');
 });
 
 // Listen on port 4000
