@@ -14,6 +14,19 @@ app.use('/js', express.static(__dirname + 'public/js'))
 const formFilePath = "public/data/form.json";
 let formFileDataJSON = fs.readFileSync(formFilePath);
 let formFileDataJS = JSON.parse(formFileDataJSON);
+let data;
+
+if (formFileDataJS.length == 0)
+{
+    formFileDataJS.push(
+    {
+        defaultValues: [],
+        customValues: []
+    });
+    
+    data = JSON.stringify(formFileDataJS, undefined, 4);
+    fs.writeFileSync(formFilePath, data);
+}
 
 // Get request for index
 app.get('/index', (req, res) => {
@@ -27,42 +40,34 @@ app.get('/form', (req, res) => {
 
 app.post('/form', (req, res) => {
     try {
-
-        formFileDataJS.push({
+        const formDataObj = 
+        {
             townName: req.body.townName,
             season: req.body.season,
             temperature: req.body.temperature,
-            temperatureUnit: req.body.temperatureUnit,
             rainfall: req.body.rainfall,
             ph: req.body.ph,
             produce: req.body.produce
-        })
+        };
+
+        formFileDataJS[0].customValues.push(formDataObj);
 
         // Write data to json file
-        let data = JSON.stringify(formFileDataJS, undefined, 4)
+        data = JSON.stringify(formFileDataJS, undefined, 4)
         fs.writeFileSync(formFilePath, data)
 
-        if(req.body.ph <= 7){
+        if (req.body.ph <= 7)
+        {
             res.redirect('/graph1')
-        }else if(req.body.ph > 7 && req.body.ph < 14){
+        }
+        else if (req.body.ph > 7 && req.body.ph < 14)
+        {
             res.redirect('/graph2')
         }
     }
     catch {
         res.redirect('/form');
     }
-
-//     for (let i = 0; i < formFileDataJS.length; i++)
-//     {
-//         console.log("Object "+i+":\n");
-//         console.log("Town Name: "+formFileDataJS[i].townName+"\n"+
-//                     "Season: "+formFileDataJS[i].season+"\n"+
-//                     "Temperature: "+formFileDataJS[i].temperature+"\n"+
-//                     "Temperature Unit : "+formFileDataJS[i].temperatureUnit+"\n"+
-//                     "Rainfall: "+formFileDataJS[i].rainfall+"\n"+
-//                     "pH: "+formFileDataJS[i].ph+"\n"+
-//                     "Produce: "+formFileDataJS[i].produce+"\n");
-//     }
 });
 
 // Get request for graph
