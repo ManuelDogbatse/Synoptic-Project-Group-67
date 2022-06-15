@@ -7,7 +7,7 @@ body
 {
     position: absolute;
     width: 100%;
-    height: 550px;
+    height: 512px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -78,6 +78,7 @@ body
     position: absolute;
     width: 100%;
     height: 100%;
+    top: 0;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -103,4 +104,54 @@ body
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+#custom-value-select-wrapper
+{
+    position: relative;
+    z-index: 1;
+    top: 512px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+#custom-value-select-wrapper div:not(#custom-values)
+{
+    border-left: 5px solid black;
+    border-right: 5px solid black;
+    height: 25px;
+    min-width: 285px;
+}
+
+#custom-value-select-label
+{
+    border-top: 5px solid black;
+    border-bottom: 5px solid black;
+    background-color: aquamarine;
+}
+
+.custom-town
+{
+    border-bottom: 5px solid black;
+    text-align: center;
+    margin: auto;
+    min-width: 285px;
+    background-color: bisque;
+}
+
+#custom-value-select-label:hover
+{
+    cursor: pointer;
+}
+
+#custom-values
+{
+    display: none;
+}
+
+#custom-values > div
+{
+    cursor: pointer;
 }
