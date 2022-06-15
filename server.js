@@ -35,6 +35,10 @@ app.get('/about', (req, res) => {
     res.render('about.ejs');
 });
 
+app.get('/map', (req, res) => {
+    res.render('map.ejs');
+});
+
 app.post('/form', (req, res) => {
     try {
 

@@ -1,0 +1,106 @@
+body
+{
+    margin: 0;
+}
+
+#map-wrapper
+{
+    position: absolute;
+    width: 100%;
+    height: 550px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#map
+{
+    position: relative;
+    width: 447px;
+    height: 512px;
+    background-image: url(../images/cape-york-no-outline.jpg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    z-index: 1;
+}
+
+.town
+{
+    position: absolute;
+    display: flex;
+    justify-content: center;
+}
+
+.location-icon
+{
+    position: absolute;
+    width: 23px;
+    height: 30px;
+    background-image: url(../images/location-icon.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.location-icon:hover
+{
+    cursor: pointer;
+}
+
+.label
+{
+    position: absolute;
+}
+
+.town:not(.town[town="dimbulah"]) > .label
+{
+    width: 100px;
+    left: 13px;
+}
+
+.town:not(.town[town="karumba"]) > .label
+{
+    top: 5px;
+}
+
+.town[town="dimbulah"] > .label
+{
+    width: 70px;
+    right: 8px;
+}
+
+.town[town="karumba"] > .label
+{
+    top: -12px;
+}
+
+#pop-up
+{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#semi-layer
+{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: #000000;
+    opacity: 0.5;
+    z-index: 2;
+}
+
+#pop-up-box-wrapper
+{
+    background-color: #FFFFFF;
+    color: #000000;
+    z-index: 3;
+    width: 300px;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
