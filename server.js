@@ -84,6 +84,10 @@ app.get('/about', (req, res) => {
 app.get('/map', (req, res) => {
     res.render('map.ejs');
 });
+// Get request for home
+app.get('/home', (req, res) => {
+    res.render('home.ejs');
+});
 
 // Listen on port 4000
 app.listen(4000);

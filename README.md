@@ -27,4 +27,4 @@ Then run the app:
 
 ```
 
-Open `http://localhost:3000/` in a web browser.
+Open `http://localhost:4000/` in a web browser.
