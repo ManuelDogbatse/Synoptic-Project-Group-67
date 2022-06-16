@@ -106,6 +106,15 @@
                 "produce": "Yam"
             }
         ],
-        "customValues": []
+        "customValues": [
+            {
+                "townName": "Rainham",
+                "season": "Dry",
+                "temperature": "21",
+                "rainfall": "332",
+                "ph": "2",
+                "produce": "Rice"
+            }
+        ]
     }
 ]
