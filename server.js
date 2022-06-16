@@ -136,8 +136,8 @@ if (formFileDataJS.length == 0)
 }
 
 // Get request for index
-app.get('/index', (req, res) => {
-    res.render('index.ejs');
+app.get('/', (req, res) => {
+    res.redirect('/home');
 });
 
 // Get request for form
