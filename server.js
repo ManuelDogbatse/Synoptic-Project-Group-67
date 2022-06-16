@@ -161,6 +161,7 @@ app.post('/form', (req, res) => {
         data = JSON.stringify(formFileDataJS, undefined, 4)
         fs.writeFileSync(formFilePath, data)
 
+        // if statement to choose which graph will be shown
         if (req.body.produce == "Rice")
         {
             res.redirect('/rice')
