@@ -31,7 +31,7 @@ const openDropdownMenu = function(event)
 
 const popdownEvent = function(event)
 {
-    if (event.target.matches("#semi-layer"))
+    if (event.target.matches("#semi-layer") || event.target.matches("#pop-up-button-no"))
     {
         document.body.removeChild(document.body.children[document.body.children.length - 1]);
         document.body.removeEventListener("click", popdownEvent);
@@ -43,12 +43,25 @@ const popupEvent = function(target)
     const popUpDiv = document.createElement("div"),
     semiLayerDiv = document.createElement("div"),
     popUpBoxWrapDiv = document.createElement("div"),
-    popUpBoxDiv = document.createElement("div");
+    popUpTownInfoDiv = document.createElement("div"),
+    popUpMessageDiv = document.createElement("div"),
+    popUpButtonWrapDiv = document.createElement("div"),
+    yesButton = document.createElement("a"),
+    noButton = document.createElement("div");
     
     popUpDiv.id = "pop-up";
     semiLayerDiv.id = "semi-layer";
-    popUpBoxWrapDiv.id = "pop-up-box-wrapper";
-    popUpBoxDiv.id = "pop-up-box";
+    popUpBoxWrapDiv.id = "pop-up-box-wrap";
+    popUpTownInfoDiv.id = "pop-up-town-info";
+    popUpMessageDiv.id = "pop-up-message";
+    popUpButtonWrapDiv.id = "pop-up-button-wrap"
+    yesButton.id = "pop-up-button-yes";
+    noButton.id = "pop-up-button-no";
+
+    popUpMessageDiv.innerHTML = "Would you like to select this data?";
+    yesButton.innerHTML = "YES";
+    noButton.innerHTML = "NO";
+
 
     if (target.className == "town")
     {
@@ -58,22 +71,31 @@ const popupEvent = function(target)
             if (defaultValues[count].townName == capitaliseEachWord(target.getAttribute("town")))
             {
                 townFound = true;
-                popUpBoxDiv.innerHTML = defaultValues[count].townName+"<br>"
+                popUpTownInfoDiv.innerHTML = defaultValues[count].townName+"<br>"
                                         +"Season: "+defaultValues[count].season+"<br>"
                                         +"Temperature: "+defaultValues[count].temperature+" °C<br>"
                                         +"Rainfall: "+defaultValues[count].rainfall+" mm<br>"
                                         +"pH: "+defaultValues[count].ph+"<br>"
                                         +"Produce: ";
 
+                if (defaultValues[count].ph <= 7)
+                {
+                    yesButton.href = "/graph1";
+                }
+                else if (defaultValues[count].ph > 7 && defaultValues[count].ph <= 14)
+                {
+                    yesButton.href = "/graph2";
+                }                                        
+
                 if (defaultValues[count].produce.constructor === Array)
                 {
                     defaultValues[count].produce.forEach(crop => {
-                        popUpBoxDiv.innerHTML = popUpBoxDiv.innerHTML.concat(crop+" ");
+                        popUpTownInfoDiv.innerHTML = popUpTownInfoDiv.innerHTML.concat(crop+" ");
                     });
                 }
                 else
                 {
-                    popUpBoxDiv.innerHTML = popUpBoxDiv.innerHTML.concat(defaultValues[count].produce);
+                    popUpTownInfoDiv.innerHTML = popUpTownInfoDiv.innerHTML.concat(defaultValues[count].produce);
                 }
                 
             }
@@ -88,29 +110,44 @@ const popupEvent = function(target)
             if (customValues[count].townName == target.innerHTML)
             {
                 townFound = true;
-                popUpBoxDiv.innerHTML = customValues[count].townName+"<br>"
+                popUpTownInfoDiv.innerHTML = customValues[count].townName+"<br>"
                                         +"Season: "+customValues[count].season+"<br>"
                                         +"Temperature: "+customValues[count].temperature+" °C<br>"
                                         +"Rainfall: "+customValues[count].rainfall+" mm<br>"
                                         +"pH: "+customValues[count].ph+"<br>"
                                         +"Produce: ";
+
+                if (customValues[count].ph <= 7)
+                {
+                    yesButton.href = "/graph1";
+                }
+                else if (customValues[count].ph > 7 && customValues[count].ph <= 14)
+                {
+                    yesButton.href = "/graph2";
+                }   
         
                 if (customValues[count].produce.constructor === Array)
                 {
                     customValues[count].produce.forEach(crop => {
-                        popUpBoxDiv.innerHTML = popUpBoxDiv.innerHTML.concat(crop+" ");
+                        popUpTownInfoDiv.innerHTML = popUpTownInfoDiv.innerHTML.concat(crop+" ");
                     });
                 }
                 else
                 {
-                    popUpBoxDiv.innerHTML = popUpBoxDiv.innerHTML.concat(customValues[count].produce);
+                    popUpTownInfoDiv.innerHTML = popUpTownInfoDiv.innerHTML.concat(customValues[count].produce);
                 }
             }
             count++;
         }
     }
 
-    popUpBoxWrapDiv.appendChild(popUpBoxDiv);
+    noButton.addEventListener("click", popdownEvent);
+    popUpButtonWrapDiv.appendChild(yesButton);
+    popUpButtonWrapDiv.appendChild(noButton);
+
+    popUpBoxWrapDiv.appendChild(popUpMessageDiv);
+    popUpBoxWrapDiv.appendChild(popUpTownInfoDiv);
+    popUpBoxWrapDiv.appendChild(popUpButtonWrapDiv);
     popUpDiv.appendChild(semiLayerDiv);
     popUpDiv.appendChild(popUpBoxWrapDiv);
 
