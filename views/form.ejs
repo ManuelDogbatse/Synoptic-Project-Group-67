@@ -5,25 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CFS :: FORM</title>
-    <link rel="stylesheet" href="css/Home.css">
 </head>
-<!-- Navigation -->
-<nav class="navbar navbar-default navbar-fixed-top navbar-shrink">
-    <div class="container">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="topnav">
-            <a href="/home">Home</a>
-            <div class="topnav-right">
-            <a href="/map">Map</a>
-            <a class = "active" href="/form">Form</a>
-            <a href="/about">About</a>
-            </div>
-            </div>
-            </nav>
-  
 <body>
     <h2>CHAD FARMING SOLUTIONS</h2>
-    <div class="intro-lead-in">
     <form action="" method="POST">
         <label for="townName">What is the name of your town?:</label><br>
         <input type="text" id="townName" name="townName" size="50" maxlength="50" required><br>
@@ -37,35 +21,34 @@
 
         <p>What are the following environmental factors in your town during this season?</p>
 
-        <label for="temperature">Average temperature of the soil:</label><br>
-        <input type="text" pattern="\d*" id="temperature" name="temperature" min="0" max="100" size="3" maxlength="3" required>
+        <label for="temperature">Average temperature of the soil (Between 0 °C - 100 °C):</label><br>
+        <input type="number" id="temperature" name="temperature" min="0" max="100" size="4" required>
         <label for="temperature">°C</label><br>
 
-        <label for="rainfall">Average rainfall:</label><br>
-        <input type="text" pattern="\d*" id="rainfall" name="rainfall" min="0" max="1000" size="4" maxlength="4" required>
+        <label for="rainfall">Average rainfall (Between 0 mm - 2000 mm):</label><br>
+        <input type="number" id="rainfall" name="rainfall" min="0" max="2000" size="5" required>
         <label for="rainfall">mm</label><br>
 
-        <label for="ph">Average pH of the soil:</label><br>
-        <input type="text" pattern="\d*" id="ph" name="ph" min="0" max="14" size="2" maxlength="2" required><br>
+        <label for="ph">Average pH of the soil (Between 1 - 14):</label><br>
+        <input type="number" id="ph" name="ph" min="0" max="14" size="3" required><br>
 
         <p>Which of the following produce do you grow in your town?:</p>
         <label for="crop1">Crop 1</label>
-        <input type="checkbox" id="crop1" name="produce" value="Crop1"><br>
+        <input type="checkbox" id="crop1" name="produce" value="Crop 1"><br>
         <label for="crop2">Crop 2</label>
-        <input type="checkbox" id="crop2" name="produce" value="Crop2"><br>
+        <input type="checkbox" id="crop2" name="produce" value="Crop 2"><br>
         <label for="crop3">Crop 3</label>
-        <input type="checkbox" id="crop3" name="produce" value="Crop3"><br>
+        <input type="checkbox" id="crop3" name="produce" value="Crop 3"><br>
         <label for="crop4">Crop 4</label>
-        <input type="checkbox" id="crop4" name="produce" value="Crop4"><br>
+        <input type="checkbox" id="crop4" name="produce" value="Crop 4"><br>
         <label for="crop5">Crop 5</label>
-        <input type="checkbox" id="crop5" name="produce" value="Crop5"><br>
+        <input type="checkbox" id="crop5" name="produce" value="Crop 5"><br>
         <label for="crop6">Crop 6</label>
-        <input type="checkbox" id="crop6" name="produce" value="Crop6"><br>
+        <input type="checkbox" id="crop6" name="produce" value="Crop 6"><br>
         <label for="crop7">Crop 7</label>
-        <input type="checkbox" id="crop7" name="produce" value="Crop7"><br>
+        <input type="checkbox" id="crop7" name="produce" value="Crop 7"><br>
 
         <input type="submit" value="Submit">
     </form>
-    <a href="/form" class="page-scroll btn btn-xl" download>Download Page Contents</a>
 </body>
 </html>
