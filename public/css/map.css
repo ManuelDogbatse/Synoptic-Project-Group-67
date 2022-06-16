@@ -3,6 +3,18 @@ body
     margin: 0;
 }
 
+
+#description
+{
+    text-transform: uppercase;
+    text-align: center;
+    font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 50px;
+    color: white;
+}
+
 #map-wrapper
 {
     position: absolute;
@@ -49,6 +61,11 @@ body
 .label
 {
     position: absolute;
+    text-transform: uppercase;
+    font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 20px;
 }
 
 .town:not(.town[town="dimbulah"]) > .label
@@ -65,7 +82,7 @@ body
 .town[town="dimbulah"] > .label
 {
     width: 70px;
-    right: 8px;
+    right: 25px;
 }
 
 .town[town="karumba"] > .label
@@ -77,11 +94,16 @@ body
 {
     position: absolute;
     width: 100%;
-    height: 100%;
+    height: 160%;
     top: 0;
     display: flex;
     justify-content: center;
     align-items: center;
+    text-transform: uppercase;
+    font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    text-align: center;
 }
 
 #semi-layer
@@ -116,7 +138,6 @@ body
 {
     position: relative;
     top: 50px;
-    text-align: center;
 }
 
 #pop-up-button-wrap
@@ -124,9 +145,20 @@ body
     position: relative;
     top: 100px;
     width: 100%;
+    height: 30px;
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
+    align-items: center;
+}
+
+#pop-up-button-wrap > *
+{
+    height: 30px;
+    width: 50px;
+    border: 5px solid black;
+    display: flex;
+    justify-content: center;
     align-items: center;
 }
 
@@ -144,37 +176,56 @@ body
 #custom-value-select-wrapper
 {
     position: relative;
+    font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
     z-index: 1;
     top: 522px;
     width: 100%;
+    min-height: 300px;
     display: flex;
     align-items: center;
     flex-direction: column;
 }
 
-#custom-value-select-wrapper div:not(#custom-values)
-{
-    border-left: 5px solid black;
-    border-right: 5px solid black;
-    height: 25px;
-    min-width: 285px;
-}
-
 #custom-value-select-label
 {
-    border-top: 5px solid black;
+    border-left: 5px solid white;
+    border-right: 5px solid white;
+    height: 40px;
+    width: 400px;
+    border-top: 5px solid white;
     text-align: center;
-    border-bottom: 5px solid black;
-    background-color: aquamarine;
+    border-bottom: 5px solid white;
+    background-color: #222222;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 50px;
 }
 
 .custom-town
 {
-    border-bottom: 5px solid black;
+    border-left: 5px solid white;
+    border-right: 5px solid white;
+    height: 40px;
+    width: 400px;
+    border-bottom: 5px solid white;
     text-align: center;
     margin: auto;
     min-width: 285px;
-    background-color: bisque;
+    background-color: #222222;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-transform: uppercase;
+    font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 50px;
 }
 
 #custom-value-select-label:hover

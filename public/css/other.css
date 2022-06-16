@@ -115,8 +115,6 @@
     background-image: none;
   }
   
-  
-  
   .btn-xl .badge {
     color: #fed136;
     background-color: #fff;
@@ -221,8 +219,6 @@
     background-color: #222;
     background-position: center center;
     background-repeat: none;
-    
-    
   }
   
   header .intro-text {
@@ -854,18 +850,20 @@
   
   h2{
     text-transform: uppercase;
+    text-align: center;
     font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
     font-size: 50px;
     font-weight: 700;
     line-height: 50px;
     color: white;
   }
+  
   form{
     text-transform: uppercase;
+    text-align: center;
     font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
     font-size: 12px;
     font-weight: 700;
     line-height: 50px;
     color: white;
   }
-  

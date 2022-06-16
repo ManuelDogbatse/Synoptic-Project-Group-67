@@ -31,7 +31,7 @@ const openDropdownMenu = function(event)
 
 const popdownEvent = function(event)
 {
-    if (event.target.matches("#semi-layer") || event.target.matches("#pop-up-button-no"))
+    if (event.target.matches("#semi-layer") || event.target.matches("#pop-up-button-no") || event.target.matches("#pop-up-button-no-text"))
     {
         document.body.removeChild(document.body.children[document.body.children.length - 1]);
         document.body.removeEventListener("click", popdownEvent);
@@ -47,7 +47,9 @@ const popupEvent = function(target)
     popUpMessageDiv = document.createElement("div"),
     popUpButtonWrapDiv = document.createElement("div"),
     yesButton = document.createElement("a"),
-    noButton = document.createElement("div");
+    noButton = document.createElement("div"),
+    yesButtonText = document.createElement("div"),
+    noButtonText = document.createElement("div");
     
     popUpDiv.id = "pop-up";
     semiLayerDiv.id = "semi-layer";
@@ -57,11 +59,11 @@ const popupEvent = function(target)
     popUpButtonWrapDiv.id = "pop-up-button-wrap"
     yesButton.id = "pop-up-button-yes";
     noButton.id = "pop-up-button-no";
+    noButtonText.id = "pop-up-button-no-text";
 
     popUpMessageDiv.innerHTML = "Would you like to select this data?";
-    yesButton.innerHTML = "YES";
-    noButton.innerHTML = "NO";
-
+    yesButtonText.innerHTML = "YES";
+    noButtonText.innerHTML = "NO";
 
     if (target.className == "town")
     {
@@ -78,25 +80,20 @@ const popupEvent = function(target)
                                         +"pH: "+defaultValues[count].ph+"<br>"
                                         +"Produce: ";
 
-                if (defaultValues[count].ph <= 7)
+                if (defaultValues[count].produce == "Rice")
                 {
-                    yesButton.href = "/graph1";
+                    yesButton.href = "/rice";
                 }
-                else if (defaultValues[count].ph > 7 && defaultValues[count].ph <= 14)
+                else if (defaultValues[count].produce == "Yam")
                 {
-                    yesButton.href = "/graph2";
-                }                                        
-
-                if (defaultValues[count].produce.constructor === Array)
-                {
-                    defaultValues[count].produce.forEach(crop => {
-                        popUpTownInfoDiv.innerHTML = popUpTownInfoDiv.innerHTML.concat(crop+" ");
-                    });
+                    yesButton.href = "/yam";
                 }
                 else
                 {
-                    popUpTownInfoDiv.innerHTML = popUpTownInfoDiv.innerHTML.concat(defaultValues[count].produce);
+                    yesButton.href = "/subclover";
                 }
+
+                popUpTownInfoDiv.innerHTML = popUpTownInfoDiv.innerHTML.concat(defaultValues[count].produce);
                 
             }
             count++;
@@ -107,7 +104,7 @@ const popupEvent = function(target)
         let townFound = false, count = 0;
         while (!townFound || count < customValues.length)
         {
-            if (customValues[count].townName == target.innerHTML)
+            if (customValues[count].townName == target.children[0].innerHTML)
             {
                 townFound = true;
                 popUpTownInfoDiv.innerHTML = customValues[count].townName+"<br>"
@@ -117,30 +114,27 @@ const popupEvent = function(target)
                                         +"pH: "+customValues[count].ph+"<br>"
                                         +"Produce: ";
 
-                if (customValues[count].ph <= 7)
+                if (customValues[count].produce == "Rice")
                 {
-                    yesButton.href = "/graph1";
+                    yesButton.href = "/rice";
                 }
-                else if (customValues[count].ph > 7 && customValues[count].ph <= 14)
+                else if (customValues[count].produce == "Yam")
                 {
-                    yesButton.href = "/graph2";
-                }   
-        
-                if (customValues[count].produce.constructor === Array)
-                {
-                    customValues[count].produce.forEach(crop => {
-                        popUpTownInfoDiv.innerHTML = popUpTownInfoDiv.innerHTML.concat(crop+" ");
-                    });
+                    yesButton.href = "/yam";
                 }
                 else
                 {
-                    popUpTownInfoDiv.innerHTML = popUpTownInfoDiv.innerHTML.concat(customValues[count].produce);
+                    yesButton.href = "/subclover";
                 }
+
+                popUpTownInfoDiv.innerHTML = popUpTownInfoDiv.innerHTML.concat(customValues[count].produce);
             }
             count++;
         }
     }
 
+    yesButton.appendChild(yesButtonText);
+    noButton.appendChild(noButtonText);
     noButton.addEventListener("click", popdownEvent);
     popUpButtonWrapDiv.appendChild(yesButton);
     popUpButtonWrapDiv.appendChild(noButton);
@@ -209,10 +203,12 @@ changeLocation = function(id)
 const createCustomTowns = function(customTowns)
 {
     customTowns.forEach(town =>{
-        const townDiv = document.createElement("div");
+        const townDiv = document.createElement("div"),
+        townTextDiv = document.createElement("div");
 
         townDiv.className = "custom-town";
-        townDiv.innerHTML = town.townName;
+        townTextDiv.innerHTML = town.townName;
+        townDiv.appendChild(townTextDiv);
         townDiv.addEventListener("click", togglePopup);
 
         customValuesDropdownMenu.appendChild(townDiv);
