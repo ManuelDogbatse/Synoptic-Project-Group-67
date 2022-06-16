@@ -15,13 +15,14 @@
         <!-- Header -->
         <header>
           <link rel="stylesheet" href="css/other.css">
+        </header>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CFS :: FORM</title>
 </head>
 <body>
-    <h2>CHAD FARMING SOLUTIONS</h2>
+    <h2>FORM</h2>
     <form action="" method="POST">
         <label for="townName">What is the name of your town?:</label><br>
         <input type="text" id="townName" name="townName" size="50" maxlength="50" required><br>
@@ -47,13 +48,16 @@
         <input type="number" id="ph" name="ph" min="0" max="14" size="3" required><br>
 
         <p>Which of the following produce do you grow in your town?:</p>
-        <label for="crop1">Rice</label>
-        <input type="radio" id="crop1" name="produce" value=1><br>
-        <label for="crop2">Yam</label>
-        <input type="radio" id="crop2" name="produce" value=2><br>
-        <label for="crop3">Sub Clover</label>
-        <input type="radio" id="crop3" name="produce" value=3><br>
+        <label for="rice">Rice</label>
+        <input type="radio" id="rice" name="produce" value="Rice"><br>
+        <label for="yam">Yam</label>
+        <input type="yam" id="yam" name="produce" value="Yam"><br>
+        <label for="sub-clover">Sub Clover</label>
+        <input type="radio" id="sub-clover" name="produce" value="Sub Clover"><br>
+        <input type="submit" value="Submit">
+
         <input type="submit" value="Submit">
     </form>
 </body>
 </html>
+
