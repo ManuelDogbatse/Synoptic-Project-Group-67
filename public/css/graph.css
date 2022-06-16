@@ -1,3 +1,9 @@
+.paragraph{
+    background-color: transparent;
+    font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    padding-top: 20px ;
+    padding-bottom: 20px;
+    backdrop-filter: blur(3px);}
 /* Add a black background color to the top navigation bar */
 .topnav {
     overflow: hidden;
@@ -83,6 +89,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    background-color: transparent;
+    padding-top: 20px;
 }
 
 .paragraph{
