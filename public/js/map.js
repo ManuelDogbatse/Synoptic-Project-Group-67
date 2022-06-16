@@ -4,6 +4,7 @@ const customValuesDropdownButton = document.querySelector("#custom-value-select-
 
 let defaultValues, customValues;
 
+// Capitalises each word in a string
 const capitaliseEachWord = function(str)
 {
     let words = str.split(" ");
@@ -15,6 +16,7 @@ const capitaliseEachWord = function(str)
     return capitalisedWords.join(" ");
 };
 
+// Closes dropdown menu when clicking outside dropdown menu
 const closeDropdownMenu = function(event)
 {
     if (!event.target.matches(".custom-town") && !event.target.matches("#semi-layer"))
@@ -23,12 +25,14 @@ const closeDropdownMenu = function(event)
     }
 };
 
+// Opens dropdown menu when clicking dropdown menu label
 const openDropdownMenu = function(event)
 {
     customValuesDropdownMenu.style.display = "block";
     event.stopPropagation();
 };
 
+// Closes pop-up when clicking outside pop-up or on 'NO' button
 const popdownEvent = function(event)
 {
     if (event.target.matches("#semi-layer") || event.target.matches("#pop-up-button-no") || event.target.matches("#pop-up-button-no-text"))
@@ -38,8 +42,10 @@ const popdownEvent = function(event)
     }
 };
 
-const popupEvent = function(target)
+// Creates the pop-up element and appends it to the document body
+const createPopUpElement = function(townValues, townName)
 {
+    // Elements that make up the pop-up element
     const popUpDiv = document.createElement("div"),
     semiLayerDiv = document.createElement("div"),
     popUpBoxWrapDiv = document.createElement("div"),
@@ -65,74 +71,38 @@ const popupEvent = function(target)
     yesButtonText.innerHTML = "YES";
     noButtonText.innerHTML = "NO";
 
-    if (target.className == "town")
+    let townFound = false, count = 0;
+    // Finds the correct town data for the map button pressed
+    while (!townFound || count < townValues.length)
     {
-        let townFound = false, count = 0;
-        while (!townFound || count < defaultValues.length)
+        if (townValues[count].townName == townName)
         {
-            if (defaultValues[count].townName == capitaliseEachWord(target.getAttribute("town")))
+            townFound = true;
+            // Changes the inner HTML to display the town data
+            popUpTownInfoDiv.innerHTML = townValues[count].townName+"<br>"
+                                    +"Season: "+townValues[count].season+"<br>"
+                                    +"Temperature: "+townValues[count].temperature+" °C<br>"
+                                    +"Rainfall: "+townValues[count].rainfall+" mm<br>"
+                                    +"pH: "+townValues[count].ph+"<br>"
+                                    +"Produce: "+townValues[count].produce;
+
+            // Sets up the anchor element to redirect the user to the correct graph
+            if (townValues[count].produce == "Rice")
             {
-                townFound = true;
-                popUpTownInfoDiv.innerHTML = defaultValues[count].townName+"<br>"
-                                        +"Season: "+defaultValues[count].season+"<br>"
-                                        +"Temperature: "+defaultValues[count].temperature+" °C<br>"
-                                        +"Rainfall: "+defaultValues[count].rainfall+" mm<br>"
-                                        +"pH: "+defaultValues[count].ph+"<br>"
-                                        +"Produce: ";
-
-                if (defaultValues[count].produce == "Rice")
-                {
-                    yesButton.href = "/rice";
-                }
-                else if (defaultValues[count].produce == "Yam")
-                {
-                    yesButton.href = "/yam";
-                }
-                else
-                {
-                    yesButton.href = "/subclover";
-                }
-
-                popUpTownInfoDiv.innerHTML = popUpTownInfoDiv.innerHTML.concat(defaultValues[count].produce);
-                
+                yesButton.href = "/rice";
             }
-            count++;
-        }
-    }
-    else
-    {
-        let townFound = false, count = 0;
-        while (!townFound || count < customValues.length)
-        {
-            if (customValues[count].townName == target.children[0].innerHTML)
+            else if (townValues[count].produce == "Yam")
             {
-                townFound = true;
-                popUpTownInfoDiv.innerHTML = customValues[count].townName+"<br>"
-                                        +"Season: "+customValues[count].season+"<br>"
-                                        +"Temperature: "+customValues[count].temperature+" °C<br>"
-                                        +"Rainfall: "+customValues[count].rainfall+" mm<br>"
-                                        +"pH: "+customValues[count].ph+"<br>"
-                                        +"Produce: ";
-
-                if (customValues[count].produce == "Rice")
-                {
-                    yesButton.href = "/rice";
-                }
-                else if (customValues[count].produce == "Yam")
-                {
-                    yesButton.href = "/yam";
-                }
-                else
-                {
-                    yesButton.href = "/subclover";
-                }
-
-                popUpTownInfoDiv.innerHTML = popUpTownInfoDiv.innerHTML.concat(customValues[count].produce);
+                yesButton.href = "/yam";
             }
-            count++;
+            else
+            {
+                yesButton.href = "/subclover";
+            }
         }
+        count++;
     }
-
+       
     yesButton.appendChild(yesButtonText);
     noButton.appendChild(noButtonText);
     noButton.addEventListener("click", popdownEvent);
@@ -148,8 +118,25 @@ const popupEvent = function(target)
     document.body.appendChild(popUpDiv);
 };
 
+// Decides which data array in the JSON file to use for the pop-up element creation
+const popupEvent = function(target)
+{
+    // If a button for a town on the map is clicked, retrieve the town data from the 'defaultValues' array in the JSON file.
+    // Else, retrieve the town data from the 'customValues' array in the JSON file.
+    if (target.className == "town")
+    {
+        createPopUpElement(defaultValues, capitaliseEachWord(target.getAttribute("town")));
+    }
+    else
+    {
+        createPopUpElement(customValues, target.children[0].innerHTML);
+    }
+};
+
+// Handles the events related to the pop-up event
 const togglePopup = function(event)
 {
+    // If the pop-up element doesn't exist, create pop-up element
     if (!document.querySelector("#semi-layer"))
     {
         if (event.currentTarget.className == "location-icon")
@@ -163,9 +150,11 @@ const togglePopup = function(event)
         
         document.body.addEventListener("click", popdownEvent);
     }
+    // Prevents the event from firing twice after a single click
     event.stopPropagation();
 };
 
+// Creating the town buttons on the map, along with their labels and their correct locations
 const createTown = function(townName, top, left)
 {
     const townDiv = document.createElement("div"),
@@ -192,9 +181,10 @@ const createTown = function(townName, top, left)
     townDiv.appendChild(labelDiv);
 
     mapDiv.appendChild(townDiv);
-},
+};
 
-changeLocation = function(id)
+// Changes the location of the map button elements after they have been created
+const changeLocation = function(id)
 {
     towns[id].style.top = towns[id].getAttribute("top")+"px";
     towns[id].style.left = towns[id].getAttribute("left")+"px";
@@ -215,6 +205,7 @@ const createCustomTowns = function(customTowns)
     });
 };
 
+// Fetches the data from the JSON file for usage on this webpage
 fetch("../data/form.json")
 .then(res => 
 {
@@ -256,10 +247,12 @@ createTown("Normanton", 473, 46);
 
 const towns = document.querySelectorAll(".town");
 
+// Change locations for map town button elements
 for (let i = 0; i < towns.length; i++)
 {
     changeLocation(i);
 }
 
+// Add event listeners for the dropdown menu 
 customValuesDropdownButton.addEventListener("click", openDropdownMenu);
 document.body.addEventListener("click", closeDropdownMenu);

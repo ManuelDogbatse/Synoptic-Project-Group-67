@@ -16,6 +16,7 @@ let formFileDataJSON = fs.readFileSync(formFilePath);
 let formFileDataJS = JSON.parse(formFileDataJSON);
 let data;
 
+// Inserts default town data in JSON file on server activation
 if (formFileDataJS.length == 0)
 {
     formFileDataJS.push(
@@ -129,13 +130,14 @@ if (formFileDataJS.length == 0)
         customValues: []
     });
     
+    // Write default town data into JSON file
     data = JSON.stringify(formFileDataJS, undefined, 4);
     fs.writeFileSync(formFilePath, data);
 }
 
 // Get request for index
-app.get('/index', (req, res) => {
-    res.render('index.ejs');
+app.get('/', (req, res) => {
+    res.redirect('/home');
 });
 
 // Get request for form
@@ -143,8 +145,10 @@ app.get('/form', (req, res) => {
     res.render('form.ejs');
 });
 
+// Receives form POST request
 app.post('/form', (req, res) => {
     try {
+        // Puts all form information into an object
         const formDataObj = 
         {
             townName: req.body.townName,
@@ -157,11 +161,11 @@ app.post('/form', (req, res) => {
 
         formFileDataJS[0].customValues.push(formDataObj);
 
-        // Write data to json file
+        // Write form data into JSON file
         data = JSON.stringify(formFileDataJS, undefined, 4)
         fs.writeFileSync(formFilePath, data)
 
-        // if statement to choose which graph will be shown
+        // Redirects user based on selected crop
         if (req.body.produce == "Rice")
         {
             res.redirect('/rice')

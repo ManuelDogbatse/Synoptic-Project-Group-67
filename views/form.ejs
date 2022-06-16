@@ -28,6 +28,7 @@
 
 <body>
   <h2>FORM</h2>
+  <!-- Form sends post request to server-side on submit -->
   <form action="" method="POST">
     <label for="townName">What is the name of your town?:</label><br>
     <input type="text" id="townName" name="townName" size="50" maxlength="50" required><br>
@@ -41,7 +42,7 @@
 
     <p>What are the following environmental factors in your town during this season?</p>
 
-    <label for="temperature">Average temperature of the soil (Between 0 °C - 100 °C):</label><br>
+    <label for="temperature">Average temperature of the soil (Between 0 °C - 30 °C):</label><br>
     <input type="number" id="temperature" name="temperature" min="0" max="30" size="4" required>
     <label for="temperature">°C</label><br>
 
@@ -50,7 +51,7 @@
     <label for="rainfall">mm</label><br>
 
     <label for="ph">Average pH of the soil (Between 1 - 14):</label><br>
-    <input type="number" id="ph" name="ph" min="0" max="14" size="3" required><br>
+    <input type="number" id="ph" name="ph" min="1" max="14" size="3" required><br>
 
     <p>Which of the following produce do you grow in your town?:</p>
     <label for="rice">Rice</label>
@@ -62,6 +63,7 @@
     <input type="submit" value="Submit">
   </form>
 
+  <!-- Footer -->
   <footer>
     <div class="footer-column">
       <div>
