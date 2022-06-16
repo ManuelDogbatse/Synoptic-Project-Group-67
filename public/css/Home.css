@@ -814,9 +814,6 @@ img::-moz-selection {
   background: 0 0;
 }
 
-body {
-  webkit-tap-highlight-color: #1ee2e7;
-}
 ul {
 list-style-type: none;
 margin: 0;

@@ -106,55 +106,6 @@
                 "produce": "Yam"
             }
         ],
-        "customValues": [
-            {
-                "townName": "Weipa",
-                "season": "Wet",
-                "temperature": "23",
-                "rainfall": "23",
-                "ph": "2",
-                "produce": "Rice"
-            },
-            {
-                "townName": "Weipa",
-                "season": "Wet",
-                "temperature": "23",
-                "rainfall": "23",
-                "ph": "2",
-                "produce": "Yam"
-            },
-            {
-                "townName": "Weipa",
-                "season": "Wet",
-                "temperature": "23",
-                "rainfall": "23",
-                "ph": "2",
-                "produce": "Sub Clover"
-            },
-            {
-                "townName": "Dimbulah",
-                "season": "Wet",
-                "temperature": "23",
-                "rainfall": "22",
-                "ph": "3",
-                "produce": "Rice"
-            },
-            {
-                "townName": "Dimbulah",
-                "season": "Wet",
-                "temperature": "23",
-                "rainfall": "22",
-                "ph": "3",
-                "produce": "Yam"
-            },
-            {
-                "townName": "Dimbulah",
-                "season": "Wet",
-                "temperature": "23",
-                "rainfall": "22",
-                "ph": "3",
-                "produce": "Sub Clover"
-            }
-        ]
+        "customValues": []
     }
 ]
