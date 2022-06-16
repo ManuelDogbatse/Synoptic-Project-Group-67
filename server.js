@@ -27,10 +27,7 @@ if (formFileDataJS.length == 0)
                 temperature: "14",
                 rainfall: "419",
                 ph: "4.5",
-                produce: [
-                    "Crop1",
-                    "Crop2"
-                ]
+                produce: "Rice"
             },
             {
                 townName: "Mapoon",
@@ -38,10 +35,7 @@ if (formFileDataJS.length == 0)
                 temperature: "17",
                 rainfall: "427",
                 ph: "7",
-                produce: [
-                    "Crop3",
-                    "Crop4"
-                ]
+                produce: "Yam"
             },
             {
                 townName: "Weipa",
@@ -49,10 +43,7 @@ if (formFileDataJS.length == 0)
                 temperature: "17",
                 rainfall: "443",
                 ph: "8",
-                produce: [
-                    "Crop5",
-                    "Crop6"
-                ]
+                produce: "Sub Clover"
             },
             {
                 townName: "Lockhart River",
@@ -60,7 +51,7 @@ if (formFileDataJS.length == 0)
                 temperature: "15",
                 rainfall: "401",
                 ph: "7.2",
-                produce: "Crop7"
+                produce: "Sub Clover"
             },
             {
                 townName: "Aurukun",
@@ -68,11 +59,7 @@ if (formFileDataJS.length == 0)
                 temperature: "14",
                 rainfall: "398",
                 ph: "6.8",
-                produce: [
-                    "Crop1",
-                    "Crop3",
-                    "Crop5"
-                ]
+                produce: "Yam"
             },
             {
                 townName: "Coen",
@@ -80,11 +67,7 @@ if (formFileDataJS.length == 0)
                 temperature: "18",
                 rainfall: "424",
                 ph: "5.9",
-                produce: [
-                    "Crop2",
-                    "Crop4",
-                    "Crop6"
-                ]
+                produce: "Rice"
             },
             {
                 townName: "Pormpuraaw",
@@ -92,11 +75,7 @@ if (formFileDataJS.length == 0)
                 temperature: "15",
                 rainfall: "433",
                 ph: "7.1",
-                produce: [
-                    "Crop3",
-                    "Crop5",
-                    "Crop7"
-                ]
+                produce: "Sub Clover"
             },
             {
                 townName: "Kowanyama",
@@ -104,11 +83,7 @@ if (formFileDataJS.length == 0)
                 temperature: "16",
                 rainfall: "451",
                 ph: "6.4",
-                produce: [
-                    "Crop1",
-                    "Crop3",
-                    "Crop6"
-                ]
+                produce: "Yam"
             },
             {
                 townName: "Cooktown",
@@ -116,11 +91,7 @@ if (formFileDataJS.length == 0)
                 temperature: "17",
                 rainfall: "456",
                 ph: "6.1",
-                produce: [
-                    "Crop2",
-                    "Crop4",
-                    "Crop7"
-                ]
+                produce: "Yam"
             },
             {
                 townName: "Cairns",
@@ -128,12 +99,7 @@ if (formFileDataJS.length == 0)
                 temperature: "14",
                 rainfall: "444",
                 ph: "7.2",
-                produce: [
-                    "Crop1",
-                    "Crop2",
-                    "Crop4",
-                    "Crop7"
-                ]
+                produce: "Rice"
             },
             {
                 townName: "Dimbulah",
@@ -141,11 +107,7 @@ if (formFileDataJS.length == 0)
                 temperature: "16",
                 rainfall: "419",
                 ph: "6.5",
-                produce: [
-                    "Crop2",
-                    "Crop3",
-                    "Crop6"
-                ]
+                produce: "Sub Clover"
             },
             {
                 townName: "Karumba",
@@ -153,7 +115,7 @@ if (formFileDataJS.length == 0)
                 temperature: "15",
                 rainfall: "412",
                 ph: "4.9",
-                produce: "Crop7"
+                produce: "Rice"
             },
             {
                 townName: "Normanton",
@@ -161,7 +123,7 @@ if (formFileDataJS.length == 0)
                 temperature: "16",
                 rainfall: "407",
                 ph: "5.3",
-                produce: "Crop3"
+                produce: "Yam"
             }
         ],
         customValues: []
@@ -199,15 +161,15 @@ app.post('/form', (req, res) => {
         data = JSON.stringify(formFileDataJS, undefined, 4)
         fs.writeFileSync(formFilePath, data)
 
-        if (req.body.produce == 1)
+        if (req.body.produce == "Rice")
         {
             res.redirect('/rice')
         }
-        else if (req.body.produce == 2)
+        else if (req.body.produce == "Yam")
         {
             res.redirect('/yam')
         }
-        else if (req.body.produce == 3)
+        else
         {
             res.redirect('/subclover')
         }
