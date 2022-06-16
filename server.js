@@ -199,13 +199,17 @@ app.post('/form', (req, res) => {
         data = JSON.stringify(formFileDataJS, undefined, 4)
         fs.writeFileSync(formFilePath, data)
 
-        if (req.body.ph <= 7)
+        if (req.body.produce == 1)
         {
-            res.redirect('/graph1')
+            res.redirect('/rice')
         }
-        else if (req.body.ph > 7 && req.body.ph <= 14)
+        else if (req.body.produce == 2)
         {
-            res.redirect('/graph2')
+            res.redirect('/yam')
+        }
+        else if (req.body.produce == 3)
+        {
+            res.redirect('/subclover')
         }
     }
     catch {
@@ -214,12 +218,16 @@ app.post('/form', (req, res) => {
 });
 
 // Get request for graph
-app.get('/graph1', (req, res) => {
-    res.render('graph1.ejs');
+app.get('/rice', (req, res) => {
+    res.render('rice.ejs');
 });
 
-app.get('/graph2', (req, res) => {
-    res.render('graph2.ejs');
+app.get('/yam', (req, res) => {
+    res.render('yam.ejs');
+});
+
+app.get('/subclover', (req, res) => {
+    res.render('subclover.ejs');
 });
 
 // Get request for about
@@ -227,7 +235,7 @@ app.get('/about', (req, res) => {
     res.render('about.ejs');
 });
 
-// Get request for about
+// Get request for map
 app.get('/map', (req, res) => {
     res.render('map.ejs');
 });
