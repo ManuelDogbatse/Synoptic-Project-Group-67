@@ -1,1 +1,120 @@
-[]
+[
+    {
+        "defaultValues": [
+            {
+                "townName": "Bamaga",
+                "season": "Wet",
+                "temperature": "14",
+                "rainfall": "419",
+                "ph": "4.5",
+                "produce": "Rice"
+            },
+            {
+                "townName": "Mapoon",
+                "season": "Dry",
+                "temperature": "17",
+                "rainfall": "427",
+                "ph": "7",
+                "produce": "Yam"
+            },
+            {
+                "townName": "Weipa",
+                "season": "Wet",
+                "temperature": "17",
+                "rainfall": "443",
+                "ph": "8",
+                "produce": "Sub Clover"
+            },
+            {
+                "townName": "Lockhart River",
+                "season": "Dry",
+                "temperature": "15",
+                "rainfall": "401",
+                "ph": "7.2",
+                "produce": "Sub Clover"
+            },
+            {
+                "townName": "Aurukun",
+                "season": "Wet",
+                "temperature": "14",
+                "rainfall": "398",
+                "ph": "6.8",
+                "produce": "Yam"
+            },
+            {
+                "townName": "Coen",
+                "season": "Dry",
+                "temperature": "18",
+                "rainfall": "424",
+                "ph": "5.9",
+                "produce": "Rice"
+            },
+            {
+                "townName": "Pormpuraaw",
+                "season": "Wet",
+                "temperature": "15",
+                "rainfall": "433",
+                "ph": "7.1",
+                "produce": "Sub Clover"
+            },
+            {
+                "townName": "Kowanyama",
+                "season": "Dry",
+                "temperature": "16",
+                "rainfall": "451",
+                "ph": "6.4",
+                "produce": "Yam"
+            },
+            {
+                "townName": "Cooktown",
+                "season": "Wet",
+                "temperature": "17",
+                "rainfall": "456",
+                "ph": "6.1",
+                "produce": "Yam"
+            },
+            {
+                "townName": "Cairns",
+                "season": "Dry",
+                "temperature": "14",
+                "rainfall": "444",
+                "ph": "7.2",
+                "produce": "Rice"
+            },
+            {
+                "townName": "Dimbulah",
+                "season": "Wet",
+                "temperature": "16",
+                "rainfall": "419",
+                "ph": "6.5",
+                "produce": "Sub Clover"
+            },
+            {
+                "townName": "Karumba",
+                "season": "Dry",
+                "temperature": "15",
+                "rainfall": "412",
+                "ph": "4.9",
+                "produce": "Rice"
+            },
+            {
+                "townName": "Normanton",
+                "season": "Wet",
+                "temperature": "16",
+                "rainfall": "407",
+                "ph": "5.3",
+                "produce": "Yam"
+            }
+        ],
+        "customValues": [
+            {
+                "townName": "Orpington",
+                "season": "Wet",
+                "temperature": "23",
+                "rainfall": "23",
+                "ph": "3",
+                "produce": "Yam"
+            }
+        ]
+    }
+]
